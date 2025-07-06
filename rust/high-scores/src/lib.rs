@@ -24,8 +24,7 @@ impl HighScores {
 
     pub fn personal_top_three(&self) -> Vec<u32> {
         let mut a = self.scores.clone();
-        a.sort();
-        a.reverse();
+        a.sort_by(|a, b| b.cmp(a));
         if a.len() < 3 {
             a
         } else {
