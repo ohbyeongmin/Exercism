@@ -18,10 +18,9 @@ pub enum Allergen {
 
 impl Allergies {
     pub fn new(score: u32) -> Self {
-        let init_score = score & 255;
         let allergies: Vec<Allergen> = (0..8)
             .filter_map(|i| {
-                if init_score & 2_u32.pow(i) == 0 {
+                if score & 2_u32.pow(i) == 0 {
                     return None;
                 }
                 if i == 0 {
